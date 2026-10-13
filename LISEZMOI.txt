@@ -1,0 +1,16 @@
+Antivirus Scanner - construire l'EXE (sur un PC Windows)
+
+1. Installe Node.js (https://nodejs.org), version LTS.
+2. Ouvre un terminal dans ce dossier, puis :
+     npm install
+     npm start          (pour tester sans compiler)
+     npm run build      (crée l'EXE portable dans le dossier "dist")
+3. Lance dist\AntivirusScanner-portable.exe
+
+Test : crée un fichier texte contenant la chaîne EICAR (fichier de test antivirus standard)
+ou ajoute tes propres empreintes SHA-256 dans hashes.json.
+
+Notes
+- Pour analyser des dossiers protégés, lance l'EXE en administrateur (clic droit).
+- SmartScreen peut afficher un avertissement : l'EXE n'est pas signé.
+- Le nom "Antivirus Scanner" se change dans package.json (productName) et main.js (title).

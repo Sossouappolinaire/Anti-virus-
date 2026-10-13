@@ -1,0 +1,6 @@
+{
+  "_info": "Ajoute tes empreintes SHA-256 ici : \"empreinte\": \"Nom de la menace\". La première est le fichier de test EICAR (inoffensif).",
+  "hashes": {
+    "275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f": "EICAR-Test-File"
+  }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+<title>Antivirus Sossou Sa Mont Sion</title>
+<style>
+:root{--char:#24272c;--char2:#333840;--gold:#f5b800;--bg:#eef0f3;--line:#dde1e6;--ink:#1d2127;--mute:#6b7280;--blue:#2f6fed;--green:#16a34a;--violet:#7c4dff;--orange:#f97316;--red:#dc2626;--teal:#0891b2;--gray:#6b7280;--disp:"Bahnschrift","Segoe UI Semibold","Segoe UI",sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:14px/1.45 "Segoe UI",system-ui,sans-serif}
+.app{display:grid;grid-template-columns:250px 1fr;height:100%}
+aside{background:var(--char);color:#fff;display:flex;flex-direction:column;padding:22px 14px}
+.brand{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:0 6px 22px}
+.brand small{font-family:var(--disp);font-size:15px;color:#c9ced6;letter-spacing:.5px}
+.brand b{font-family:var(--disp);font-size:24px;line-height:1.1;color:#fff;font-weight:600}
+nav{display:flex;flex-direction:column;gap:4px}
+nav button{display:flex;align-items:center;gap:10px;border:0;background:none;color:#c9ced6;font:inherit;font-size:15px;padding:11px 14px;border-radius:10px;cursor:pointer;text-align:left}
+nav button:hover{background:var(--char2)}
+nav button.on{background:var(--char2);color:#fff;box-shadow:inset 3px 0 0 var(--gold)}
+nav i{width:10px;height:10px;border-radius:50%;flex:none}
+nav .bd{margin-left:auto;font-size:12px;font-weight:600;padding:1px 8px;border-radius:10px;color:#fff}
+.sign{margin-top:auto;padding:14px 10px 0;border-top:1px solid var(--char2);color:#c9ced6;font-size:12px}
+.sign b{display:block;color:var(--gold);font-family:var(--disp);font-size:15px;font-weight:600;margin-top:2px}
+main{overflow-y:auto;padding:22px 26px}
+section{display:none}section.on{display:block}
+.hero{background:var(--char);color:#fff;border-radius:16px;padding:22px 24px;margin-bottom:16px}
+.hero-top{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.hero h2{font-family:var(--disp);font-size:30px;margin:0;font-weight:600;color:var(--gold)}
+.hero p{margin:4px 0 0;color:#c9ced6;word-break:break-all}
+.picks{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:0;border-radius:10px;padding:10px 16px;font:inherit;font-weight:600;color:#fff;cursor:pointer;transition:filter .12s,transform .06s}
+.btn:hover{filter:brightness(1.1)}.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.45;cursor:default;filter:none;transform:none}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.btn.sm{padding:6px 11px;font-size:12px;border-radius:8px}
+.blue{background:var(--blue)}.green{background:var(--green)}.violet{background:var(--violet)}.orange{background:var(--orange)}.red{background:var(--red)}.teal{background:var(--teal)}.gray{background:var(--gray)}
+.gold{background:var(--gold);color:#1d2127}
+.ghost{background:transparent;border:1.5px solid #5a616b}
+#progress{margin-top:20px;border-top:1px solid var(--char2);padding-top:18px}
+.prow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+#pct{font-family:var(--disp);font-size:34px;font-weight:600}
+#phase{color:#c9ced6}
+.pbar{height:22px;background:#15171a;border-radius:11px;overflow:hidden;position:relative}
+.fill{height:100%;width:0;border-radius:11px;transition:width .25s;background:var(--gold) repeating-linear-gradient(45deg,rgba(255,255,255,.3) 0 10px,transparent 10px 20px);background-size:28px 28px;animation:stripes .8s linear infinite}
+.pbar.indet .fill{width:35%!important;transition:none;animation:stripes .8s linear infinite,slide 1.3s ease-in-out infinite alternate}
+.pbar.paused .fill{animation:none;background:var(--gold)}
+@keyframes stripes{to{background-position:28px 0}}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(185%)}}
+@media (prefers-reduced-motion:reduce){.fill,.pbar.indet .fill{animation:none}}
+.cur{margin-top:10px;font:12px Consolas,monospace;color:#9aa3ad;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-height:16px}
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.tile{background:var(--char2);border-radius:10px;padding:10px 12px}
+.tile b{display:block;font-family:var(--disp);font-size:22px;font-weight:600}
+.tile span{font-size:12px;color:#c9ced6}
+.tile.hot b{color:#ff6b5e}
+.ctrl{display:flex;gap:10px;margin-top:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:14px}
+.card h3{margin:0;font-family:var(--disp);font-size:19px;font-weight:600}
+.head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.head .sp{flex:1}
+.chip{display:inline-block;padding:2px 10px;border-radius:12px;color:#fff;font-size:12px;font-weight:600}
+.row{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.lv{width:5px;align-self:stretch;border-radius:3px;flex:none}
+.grow{flex:1;min-width:0}
+.path{font:12px Consolas,monospace;color:var(--mute);word-break:break-all}
+.acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.empty{padding:30px;text-align:center;color:var(--mute)}
+.mute{color:var(--mute)}
+.keep{color:var(--green);font-weight:600}
+h4{font-family:var(--disp);font-size:16px;margin:18px 0 8px;font-weight:600}
+table{width:100%;border-collapse:collapse}
+td,th{text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--mute);font-weight:600;font-size:12px}
+.meter{height:10px;background:var(--line);border-radius:5px;overflow:hidden;margin-top:8px}
+.meter i{display:block;height:100%;background:var(--blue)}
+input[type=password]{padding:9px 12px;border:1.5px solid var(--line);border-radius:10px;font:inherit;min-width:340px}
+@media (max-width:900px){.app{grid-template-columns:190px 1fr}.tiles{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="brand">
+    <svg width="72" height="72" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4 56 12v18c0 14-10 24-24 30C18 54 8 44 8 30V12z" fill="#f5b800"/><path d="M20 32l9 9 16-18" fill="none" stroke="#24272c" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div><small>Anti virus</small><br><b>Sossou Sa Mont Sion</b></div>
+  </div>
+  <nav>
+    <button data-tab="scan" class="on"><i style="background:#f5b800"></i>Analyse<span class="bd" id="b-scan" style="background:var(--red)" hidden></span></button>
+    <button data-tab="dups"><i style="background:#2f6fed"></i>Doublons<span class="bd" id="b-dups" style="background:var(--blue)" hidden></span></button>
+    <button data-tab="perf"><i style="background:#f97316"></i>Ralentissements</button>
+    <button data-tab="quar"><i style="background:#16a34a"></i>Quarantaine<span class="bd" id="b-quar" style="background:var(--green)" hidden></span></button>
+    <button data-tab="set"><i style="background:#9aa3ad"></i>Réglages</button>
+  </nav>
+  <div class="sign">Développeur<b>Sossou Kouamé Appolinaire</b></div>
+</aside>
+<main>
+  <section id="tab-scan" class="on">
+    <div class="hero">
+      <div class="hero-top">
+        <div><h2 id="heroTitle">Prêt à analyser</h2><p id="heroSub">Choisis ce que tu veux vérifier.</p></div>
+      </div>
+      <div class="picks">
+        <button class="btn blue" data-scan="downloads">Téléchargements</button>
+        <button class="btn green" data-scan="desktop">Bureau</button>
+        <button class="btn violet" data-scan="documents">Documents</button>
+        <button class="btn orange" data-scan="disk">Disque entier</button>
+        <button class="btn teal" id="pick">Autre dossier…</button>
+      </div>
+      <div id="progress" hidden>
+        <div class="prow"><span id="pct">0 %</span><span id="phase"></span></div>
+        <div class="pbar indet" id="bar"><div class="fill" id="fill"></div></div>
+        <div class="cur" id="cur"></div>
+        <div class="tiles">
+          <div class="tile"><b id="t-files">0</b><span>fichiers analysés</span></div>
+          <div class="tile" id="t-hot"><b id="t-thr">0</b><span>menaces trouvées</span></div>
+          <div class="tile"><b id="t-dur">0 s</b><span>durée</span></div>
+          <div class="tile"><b id="t-eta">…</b><span>temps restant</span></div>
+        </div>
+        <div class="ctrl" id="ctrl" hidden>
+          <button class="btn blue" id="pauseBtn">Pause</button>
+          <button class="btn red" id="stopBtn">Arrêter</button>
+        </div>
+      </div>
+    </div>
+    <div id="threats"></div>
+  </section>
+  <section id="tab-dups"><div id="dups"></div></section>
+  <section id="tab-perf">
+    <div class="head"><button class="btn orange" id="perfBtn">Analyser les ralentissements</button></div>
+    <div id="perf"></div>
+  </section>
+  <section id="tab-quar"><div id="quar"></div></section>
+  <section id="tab-set">
+    <div class="card">
+      <h3>Clé VirusTotal (facultative)</h3>
+      <p class="mute">Permet de vérifier en ligne les fichiers suspects. L’offre gratuite est limitée à 4 requêtes par minute : seuls les 20 premiers fichiers suspects sont vérifiés.</p>
+      <div class="head"><input type="password" id="vtKey" placeholder="Clé API"><button class="btn blue" id="saveKey">Enregistrer</button><span id="saved" class="mute"></span></div>
+    </div>
+    <div class="card">
+      <h3>À propos</h3>
+      <p>Antivirus Sossou Sa Mont Sion, développé par <b>Sossou Kouamé Appolinaire</b>.</p>
+      <p class="mute">Fonctionne sur tout PC Windows 10 ou 11, sans installation. Détection basique : elle ne remplace pas Windows Defender.</p>
+    </div>
+  </section>
+</main>
+</div>
+<script src="renderer.js"></script>
+</body>
+</html>

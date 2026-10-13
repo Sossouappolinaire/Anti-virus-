@@ -1,0 +1,23 @@
+{
+  "name": "antivirus-sossou-sa-mont-sion",
+  "version": "1.0.0",
+  "description": "Antivirus Sossou Sa Mont Sion - analyse, doublons et ralentissements",
+  "author": "Sossou Kouamé Appolinaire",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "local.sossou.samontsion.antivirus",
+    "productName": "Antivirus Sossou Sa Mont Sion",
+    "copyright": "Sossou Kouamé Appolinaire",
+    "files": ["main.js", "preload.js", "index.html", "renderer.js", "hashes.json"],
+    "win": { "target": [{ "target": "portable", "arch": ["x64"] }] },
+    "portable": { "artifactName": "AntivirusSossouSaMontSion.exe" }
+  }
+}
